@@ -1,0 +1,568 @@
+@import "tailwindcss";
+
+
+
+@layer base {
+  :root {
+    /* Core Colors */
+    /* light mode background set to #fffaf3 (approx HSL: 35 100% 98%) */
+    --background: 35 100% 98%;
+    --foreground: 240 10% 15%;
+    
+    /* Glassmorphism Colors */
+    --glass-light: 0 0% 100%;
+    --glass-dark: 240 10% 15%;
+    --glass-border: gray 300;
+    
+    /* Brand Colors */
+  /* Brand Colors */
+  /* Primary set to #0D663C (approx HSL: 152 64% 23%) and a lighter glow */
+  --primary: 152 64% 23%;
+  --primary-glow: 152 70% 36%;
+  --primary-foreground: 0 0% 100%;
+    
+    --secondary: 220 20% 95%;
+    --secondary-foreground: 240 10% 20%;
+    
+    /* Interactive Colors */
+    --accent: 190 100% 60%;
+    --accent-glow: 200 100% 70%;
+    --accent-foreground: 0 0% 100%;
+    
+    --success: 140 60% 50%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 45 100% 60%;
+    --warning-foreground: 0 0% 100%;
+    
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Neutral Colors */
+    --muted: 220 15% 92%;
+    --muted-foreground: 240 5% 45%;
+    
+  /* Set to Tailwind gray-300 (approx HSL lightness ~83%) */
+  --border: 0 0% 83%;
+    --input: 220 15% 90%;
+    --ring: 270 100% 65%;
+    
+    /* Surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
+    
+    /* Chat System Colors */
+    --chat-bubble: 0 0% 98%;
+    --chat-bubble-sent: 270 100% 65%;
+    --chat-bubble-received: 220 15% 92%;
+    --chat-online: 140 60% 50%;
+    --chat-typing: 240 5% 65%;
+    --chat-file-zone: 190 100% 60%;
+    
+    /* Dashboard Colors */
+    --dashboard-widget: 0 0% 100%;
+    --dashboard-metric: 220 15% 95%;
+    --chart-1: 270 100% 65%;
+    --chart-2: 190 100% 60%;
+    --chart-3: 140 60% 50%;
+    --chart-4: 45 100% 60%;
+    --chart-5: 320 100% 65%;
+    
+    /* User Management Colors */
+    --role-admin: 0 75% 60%;
+    --role-host: 270 100% 65%;
+    --role-guest: 190 100% 60%;
+    --status-active: 140 60% 50%;
+    --status-pending: 45 100% 60%;
+    --status-inactive: 240 5% 65%;
+    
+    /* Notification Colors */
+    --notification-info: 190 100% 60%;
+    --notification-error: 0 75% 60%;
+    --notification-warning: 45 100% 60%;
+    --notification-success: 140 60% 50%;
+    
+    /* Payment & Booking Colors */
+    --payment-pending: 45 100% 60%;
+    --payment-confirmed: 140 60% 50%;
+    --payment-failed: 0 75% 60%;
+    --payment-refunded: 240 5% 65%;
+    
+    /* Mobile Colors */
+    --mobile-nav: 0 0% 100%;
+    --mobile-nav-active: 270 100% 65%;
+    --mobile-gesture: 190 100% 60%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-glass: linear-gradient(135deg, 
+      hsla(var(--glass-light), 0.25) 0%, 
+      hsla(var(--glass-light), 0.1) 100%);
+    --gradient-chat: linear-gradient(135deg, hsl(var(--chat-online)), hsl(var(--chat-typing)));
+    --gradient-dashboard: linear-gradient(135deg, hsl(var(--chart-1)), hsl(var(--chart-2)));
+    
+    /* Shadows & Effects */
+    --shadow-glass: 0 8px 32px hsla(var(--foreground), 0.1);
+    --shadow-glow: 0 0 40px hsla(var(--primary), 0.3);
+    --shadow-accent-glow: 0 0 30px hsla(var(--accent), 0.4);
+    
+    /* Border Radius */
+    --radius: 3px;
+    --radius-lg: 6px;
+    --radius-xl: 12px;
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    /* Core Colors - Dark Mode */
+    /* dark mode background set to #0F0F0F (approx HSL: 0 0% 6%) */
+    --background: 0 0% 6%;
+    --foreground: 220 20% 95%;
+    
+    /* Glassmorphism Colors - Dark */
+    --glass-light: 240 10% 15%;
+    --glass-dark: 240 10% 5%;
+    /* Use Tailwind gray-300 for borders in dark mode */
+    --glass-border: gray 300;
+    
+    /* Surfaces - Dark */
+    --card: 240 10% 12%;
+    --card-foreground: 220 20% 95%;
+    
+    --secondary: 240 10% 15%;
+    --secondary-foreground: 220 20% 90%;
+    
+    --muted: 240 10% 20%;
+    --muted-foreground: 240 5% 65%;
+    
+  /* Use Tailwind gray-300 for borders in dark mode */
+  --border: gray 300;
+    --input: 240 10% 20%;
+    
+    /* Update glass gradient for dark mode */
+    --gradient-glass: linear-gradient(135deg, 
+      hsla(var(--glass-light), 0.15) 0%, 
+      hsla(var(--glass-light), 0.05) 100%);
+      
+    /* Dark mode shadows */
+    --shadow-glass: 0 8px 32px hsla(0, 0%, 0%, 0.3);
+  }
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  body {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+    /* Prefer Poppins when available; fall back to system sans */
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  body,
+  #root {
+    min-height: 100%;
+  }
+}
+
+/* Ensure font-salsa utility works even if Tailwind doesn't generate it for any reason */
+.font-salsa {
+  font-family: 'Salsa', cursive !important;
+}
+
+@layer components {
+  /* Glassmorphism Components */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--glass-border) / 0.3);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Custom scrollbar for comments */
+  .comments-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .comments-scroll::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  .comments-scroll::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+
+  .comments-scroll::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* Firefox scrollbar */
+  .comments-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) hsl(var(--muted));
+  }
+
+  /* Enhanced Scrollbar Styles */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--glass-border) / 0.5) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--glass-border) / 0.5);
+    border-radius: 3px;
+    border: none;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--glass-border) / 0.7);
+  }
+
+  .scrollbar-thumb-glass-border\/50::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--glass-border) / 0.5);
+  }
+
+  .scrollbar-track-transparent::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Toast Notification Styles */
+  .animate-toast-enter {
+    animation: toast-enter 0.3s ease-out;
+  }
+
+  @keyframes toast-enter {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Z-index for notifications */
+  .z-notification {
+    z-index: 9999;
+  }
+
+  /* Notification background colors */
+  .bg-notification-success\/90 {
+    background-color: hsl(var(--notification-success) / 0.9);
+  }
+
+  .bg-notification-error\/90 {
+    background-color: hsl(var(--notification-error) / 0.9);
+  }
+
+  .bg-notification-warning\/90 {
+    background-color: hsl(var(--notification-warning) / 0.9);
+  }
+
+  .bg-notification-info\/90 {
+    background-color: hsl(var(--notification-info) / 0.9);
+  }
+
+  /* Notification border colors */
+  .border-notification-success {
+    border-color: hsl(var(--notification-success));
+  }
+
+  .border-notification-error {
+    border-color: hsl(var(--notification-error));
+  }
+
+  .border-notification-warning {
+    border-color: hsl(var(--notification-warning));
+  }
+
+  .border-notification-info {
+    border-color: hsl(var(--notification-info));
+  }
+
+  /* Shadow for notifications */
+  .shadow-notification {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Notification badge animations */
+  .animate-notification-bounce {
+    animation: notification-bounce 0.6s ease-in-out;
+  }
+
+  @keyframes notification-bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-3px);
+    }
+    60% {
+      transform: translateY(-1px);
+    }
+  }
+
+  /* Bell ring animation */
+  .animate-bell-ring {
+    animation: bell-ring 0.5s ease-in-out;
+  }
+
+  @keyframes bell-ring {
+    0%, 50%, 100% {
+      transform: rotate(0deg);
+    }
+    10%, 30% {
+      transform: rotate(-10deg);
+    }
+    20%, 40% {
+      transform: rotate(10deg);
+    }
+  }
+
+  .glass-card-dark {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-button {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .glass-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Gradient Backgrounds */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .bg-gradient-glass {
+    background: var(--gradient-glass);
+  }
+
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  /* Google-AI-like subtle sliding border (uses a masked sliding gradient) */
+  .ai-border {
+    position: relative;
+    border-radius: 0.75rem;
+    /* keep the element's own border for layout; the animated ring is in ::before */
+  }
+
+  .ai-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px; /* place the ring just outside the element */
+    border-radius: inherit;
+    pointer-events: none;
+    /* sliding band gradient */
+    background: linear-gradient(90deg, rgba(57,218,255,0) 0%, #ee5d86 25%, #4580df 75%, rgb(255, 0, 0) 25% , rgba(57,218,255,0) 100%);
+    background-size: 200% 100%;
+    animation: ai-slide 4s linear infinite;
+    /* mask out the center so only a thin ring is visible */
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    /* allow some thickness to show */
+    padding: 2px;
+  }
+
+  @keyframes ai-slide {
+    from { background-position: 0% 0%; }
+    to   { background-position: -200% 0%; }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.8s ease-out;
+  }
+
+  /* Hover Effects */
+  .hover-glow {
+    transition: box-shadow 0.3s ease;
+  }
+
+  /* Home page: force borders to Tailwind gray-300 */
+  /* Using !important intentionally to override utility classes and component variables on this page only */
+  .home-page * {
+    border-color: #D1D5DB !important; /* tailwind gray-300 */
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@layer utilities {
+  /* Backdrop Effects */
+  .backdrop-blur-glass {
+    backdrop-filter: blur(16px);
+  }
+
+  .backdrop-blur-strong {
+    backdrop-filter: blur(24px);
+  }
+
+  /* Shadows */
+  .shadow-glass {
+    box-shadow: var(--shadow-glass);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-accent-glow {
+    box-shadow: var(--shadow-accent-glow);
+  }
+
+  /* Text Gradients */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  50% {
+    transform: scale(1.05) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: var(--shadow-glow);
+  }
+  50% {
+    box-shadow: var(--shadow-accent-glow);
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .text-gradient-primary,
+  .text-gradient-accent {
+    /* Fallback for older mobile browsers */
+    color: hsl(var(--primary));
+  }
+}
